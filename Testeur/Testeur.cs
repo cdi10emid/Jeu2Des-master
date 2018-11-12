@@ -27,6 +27,8 @@ namespace Testeur
             MonJeu.JouerPartie("Lucie"); //Encore une partie
             MonJeu.JouerPartie(); //Encore une partie 
             
+            MonJeu.VoirClassement();
+            
             Console.ReadKey();            
         }
     }

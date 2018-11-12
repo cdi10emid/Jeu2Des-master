@@ -27,8 +27,8 @@ namespace Jeu2Des
             get{return _Joueur;}       
         }
     
-        private De[] _Des = new De[2]; 
-
+        private De[] _Des = new De[2];
+        private Classement ClassJeu;
         
         /// <summary>
         /// Crée un jeu de 2 Dés avec un classement
@@ -40,6 +40,7 @@ namespace Jeu2Des
             //On aurait pu créer les 2 Des juste au moment de jouer  
             _Des[0] = new De();
             _Des[1] = new De();
+            ClassJeu = new Classement();
             
         }
 
@@ -55,7 +56,8 @@ namespace Jeu2Des
 
             //On fait jouer le joueur en lui passant les 2 dés
             int resultat = _Joueur.Jouer(_Des);
-           
+            ClassJeu.AjouterEntree(_Joueur);
+            
         }
 
         /// <summary>
@@ -70,6 +72,18 @@ namespace Jeu2Des
 
             //Le joueur Joue et on récupère son score
             int resultat = _Joueur.Jouer(_Des);
+
+            ClassJeu.AjouterEntree(_Joueur);
+
+
+        }
+
+        Classement VoirClass;
+       
+        public void VoirClassement()
+        {
+            VoirClass = new Classement();
+            VoirClass.VisuClassement();
             
         }
         
