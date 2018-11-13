@@ -5,16 +5,22 @@ using System.Text;
 
 namespace Jeu2Des
 {
+    [Serializable]
     public class Entree : IComparable<Entree>
     {
-        private string Nom;
-        private int Score;
+        public string Nom { get; set; }
+        public int Score { get; set; }
+       
       
-        public Entree(Joueur joueur)
+        public Entree(string nom, int score)
         {
-            Nom = joueur.Nom;
-            Score = joueur.Score;
+            Nom = nom;
+            Score = score;
          
+        }
+        public Entree()
+        {
+
         }
 
         public int CompareTo(Entree other)
@@ -23,7 +29,11 @@ namespace Jeu2Des
             {
                 return this.Score.CompareTo(other.Score);
             }
-            throw new NotImplementedException();
+            return 1;
+        }
+        public override string ToString()
+        {
+            return $"Nom : {Nom} , Score: {Score}";
         }
     }
 }

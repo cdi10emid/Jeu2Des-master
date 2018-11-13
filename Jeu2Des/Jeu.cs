@@ -28,7 +28,7 @@ namespace Jeu2Des
         }
     
         private De[] _Des = new De[2];
-        private Classement ClassJeu;
+        private Classement classement;
         
         /// <summary>
         /// Crée un jeu de 2 Dés avec un classement
@@ -40,7 +40,7 @@ namespace Jeu2Des
             //On aurait pu créer les 2 Des juste au moment de jouer  
             _Des[0] = new De();
             _Des[1] = new De();
-            ClassJeu = new Classement();
+            classement = new Classement();
             
         }
 
@@ -50,14 +50,14 @@ namespace Jeu2Des
         /// <param name="nom">Le nom du joueur</param>
         public void JouerPartie(string nom)
         {
-
+          classement.loadBin();
             //Le joueur est créé quand la partie démarre
             _Joueur = new Joueur(nom);
 
             //On fait jouer le joueur en lui passant les 2 dés
             int resultat = _Joueur.Jouer(_Des);
-            ClassJeu.AjouterEntree(_Joueur);
-            
+            classement.AjouterEntree(_Joueur.Nom, _Joueur.Score);
+
         }
 
         /// <summary>
@@ -73,18 +73,25 @@ namespace Jeu2Des
             //Le joueur Joue et on récupère son score
             int resultat = _Joueur.Jouer(_Des);
 
-            ClassJeu.AjouterEntree(_Joueur);
+            classement.AjouterEntree(_Joueur.Nom,_Joueur.Score);
+            classement.loadBin();
 
 
         }
 
-        Classement VoirClass;
+       
        
         public void VoirClassement()
         {
-            VoirClass = new Classement();
-            VoirClass.VisuClassement();
+           
+            classement.VisuClassement();
             
+        }
+        public void Terminer()
+        {
+           
+            classement.saveBin();
+            classement.saveXML();
         }
         
     }
