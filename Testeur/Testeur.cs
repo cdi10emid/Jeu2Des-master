@@ -21,6 +21,7 @@ namespace Testeur
             //Jouons quelques parties ....
             //MonJeu.JouerPartie(); //1ere partie avec un joueur par défaut
             //MonJeu.JouerPartie(); //2eme partie avec un joueur par défaut
+            Console.WriteLine("Affichage de mes parties");
             MonJeu.JouerPartie("David"); //3eme partie
             MonJeu.JouerPartie("David"); //Encore une partie  
             MonJeu.JouerPartie("Sarah"); //Encore une partie 
@@ -28,6 +29,7 @@ namespace Testeur
            // MonJeu.JouerPartie(); //Encore une partie 
             MonJeu.Terminer();
             Console.ReadKey();
+            Console.WriteLine("Classement de ma partie");
             MonJeu.VoirClassement();
             
             Console.ReadKey();            

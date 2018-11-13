@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classement.cs" />
+    <Compile Include="ClassementBinaire.cs" />
+    <Compile Include="ClassementXml.cs" />
     <Compile Include="De.cs" />
     <Compile Include="Entree.cs" />
     <Compile Include="Jeu.cs" />

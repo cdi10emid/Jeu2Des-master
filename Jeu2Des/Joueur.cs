@@ -91,7 +91,7 @@ namespace Jeu2Des
         /// <remarks></remarks>
         public override string ToString()
         {
-            return  "Nom: " + Nom + ", score= " + Score;
+            return "Nom: " + Nom + ", score= " + Score;
         }
     }
 }

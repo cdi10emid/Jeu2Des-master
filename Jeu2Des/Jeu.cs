@@ -40,9 +40,20 @@ namespace Jeu2Des
             //On aurait pu créer les 2 Des juste au moment de jouer  
             _Des[0] = new De();
             _Des[1] = new De();
-            classement = new Classement();
-            
+            //classement = new ClassementBinaire();
+            //classement.load();
+            //Console.WriteLine($"Classement sauvegardé en binaire : ");
+            //classement.VisuClassement();
+            //classement = new ClassementBinaire();
+
+            classement = new ClassementXml();
+            classement.load();
+            Console.WriteLine($"Classement sauvegardé en XML : ");
+            classement.VisuClassement();
+            classement = new ClassementXml();
+           
         }
+
 
         /// <summary>
         /// Permet de faire une partie du jeu de dés en indiquant le nom du joueur
@@ -50,14 +61,14 @@ namespace Jeu2Des
         /// <param name="nom">Le nom du joueur</param>
         public void JouerPartie(string nom)
         {
-          classement.loadBin();
+          
             //Le joueur est créé quand la partie démarre
             _Joueur = new Joueur(nom);
 
             //On fait jouer le joueur en lui passant les 2 dés
             int resultat = _Joueur.Jouer(_Des);
             classement.AjouterEntree(_Joueur.Nom, _Joueur.Score);
-
+            
         }
 
         /// <summary>
@@ -69,14 +80,9 @@ namespace Jeu2Des
 
             //Le joueur est créé quand la partie démarre
             _Joueur = new Joueur();
-
             //Le joueur Joue et on récupère son score
             int resultat = _Joueur.Jouer(_Des);
-
             classement.AjouterEntree(_Joueur.Nom,_Joueur.Score);
-            classement.loadBin();
-
-
         }
 
        
@@ -90,8 +96,8 @@ namespace Jeu2Des
         public void Terminer()
         {
            
-            classement.saveBin();
-            classement.saveXML();
+            classement.save();
+            
         }
         
     }
