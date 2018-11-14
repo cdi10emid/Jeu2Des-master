@@ -31,6 +31,7 @@ namespace Testeur
             Console.ReadKey();
             Console.WriteLine("Classement de ma partie");
             MonJeu.VoirClassement();
+          
             
             Console.ReadKey();            
         }

@@ -84,7 +84,8 @@ namespace Jeu2Des
         public void VoirClassement()
         {
            
-            classement.VisuClassement();
+           // classement.VisuClassement();
+            classement.TopN();
             
         }
         public int TypeSauvegarde { get; set; }
