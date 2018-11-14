@@ -28,7 +28,7 @@ namespace Jeu2Des
         }
     
         private De[] _Des = new De[2];
-        private Classement classement;
+       public Classement classement;
         
         /// <summary>
         /// Crée un jeu de 2 Dés avec un classement
@@ -40,17 +40,11 @@ namespace Jeu2Des
             //On aurait pu créer les 2 Des juste au moment de jouer  
             _Des[0] = new De();
             _Des[1] = new De();
-            //classement = new ClassementBinaire();
-            //classement.load();
-            //Console.WriteLine($"Classement sauvegardé en binaire : ");
-            //classement.VisuClassement();
-            //classement = new ClassementBinaire();
+           
 
-            classement = new ClassementXml();
+            classement = Factory.CreateClassement("XML");
+
             classement.load();
-            Console.WriteLine($"Classement sauvegardé en XML : ");
-            classement.VisuClassement();
-            classement = new ClassementXml();
            
         }
 
@@ -93,10 +87,12 @@ namespace Jeu2Des
             classement.VisuClassement();
             
         }
-        public void Terminer()
+        public int TypeSauvegarde { get; set; }
+        public void Terminer(string TypeSauvegarde)
         {
-           
+
             classement.save();
+            
             
         }
         
