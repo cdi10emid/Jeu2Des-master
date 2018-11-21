@@ -18,7 +18,7 @@ namespace Testeur
             //Le jeu est crée (avec ses 2 des et son classement)
             Jeu MonJeu = new Jeu();
             //MonJeu.VoirClassement();
-            //Jouons quelques parties ....
+            //Jouons quelques parties .....
             //MonJeu.JouerPartie(); //1ere partie avec un joueur par défaut
             //MonJeu.JouerPartie(); //2eme partie avec un joueur par défaut
             Console.WriteLine("Affichage de mes parties");
